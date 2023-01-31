@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7 < 0.9.0;
+// tambien se puede escribir pragma solidity ^0.8.0
+
+//Recomendación, poner el mismo nombre del archivo o carpeta 
+contract DataTypesValor {
+
+    //Variables de estado: cada que consultemos su valor va a permanecer en la blockchain
+    
+    //Bool              //asignamos un valor desde el inicio
+    bool FlagVerdadera = true;
+    bool FlagFalso = false;
+
+    //Enteros con signo: todos los numeros negativos y positivos con signo
+    //Podemos guardar 256 bits
+    int Numero1 = -1; 
+    int Numero2 = 2;
+
+    //especificando los bits a ocupar, en este caso solo 8
+    int8 Numero3 = 1;
+
+    //int16 -> 16 bits
+    int16 Numero4 = 1;
+
+    //Enteros con signo: todos los numeros positivos
+    //Si ponemos el - antes del número nos va a dar un error
+    uint Numero5 = 1;
+
+    //Address solo un campo en solidity -> adress de tu wallet
+    //ir a deploy para copiar el adress y no deb de dar error
+    address MyAdress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    
+    //Si queremos recibir ether o wei, nuestra address debe de ser payable
+    address payable MyAdress2; 
+
+    //Bytes: para guardar palabras, como con los int podemos definir con bytes
+    //Hasta 32 bytes por palabra
+    bytes word1 = "hola";
+    bytes1 word2 = "H";
+
+    //String: tipo de dato de referencia y mas complejo, un string solidity al ocupar ASCI y lo llama tipo de dato de referencia 
+    //al ejecutar hasta aqui no tenemos ninguna acción, solo estamos declarando variables y no son public
+    //El public nos genera un getter para consultar su estado sin tener que hacer una función 
+
+    //Ya con esto si ejecuta, antes de darle deploy hay que borrar el contrato
+    int public Numero6 = 100;
+    
+    }
