@@ -46,4 +46,8 @@ contract DataTypesValor {
     //Ya con esto si ejecuta, antes de darle deploy hay que borrar el contrato
     int public Numero6 = 100;
     
+    //No hay variables para numeros con decimales porque deben de ser deterministas 
+    // Tampoco hay variables undefined, podemos dejarlas asi sin iniciar y no pasa nada ya que en automático lo deja en cero
+    address public myadress3;
+    
     }
