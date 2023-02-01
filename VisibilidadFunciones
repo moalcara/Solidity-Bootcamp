@@ -1,5 +1,6 @@
-    // SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
+
 contract VisibilidadFunciones{
 
 //*** Programa de Recompensas
@@ -24,8 +25,6 @@ contract VisibilidadFunciones{
         //this.verOwner();
         sumarPuntos(10);
         return puntosTotales;
-
-        //emit VerEvento();
     }
 
     //Variables globales 
@@ -34,7 +33,7 @@ contract VisibilidadFunciones{
     uint public blockNumber = block.number;
 
     uint public txPrice = tx.gasprice;
-    
+
     //External - Se llaman expliciatemente y desde otros contratos 
     function verVarGlobales() external{
         sender = msg.sender;
@@ -42,19 +41,19 @@ contract VisibilidadFunciones{
         blockNumber = block.number;
     }
 
-    //Eventos
-   // event VerPuntos();
 }
-
 //Herencia
 contract EjemploPrograma is VisibilidadFunciones{
 
+    address owner;
     function fun (int _p1) public{
         sumarPuntos(_p1);
         verPuntos();
     }
 
     constructor(){
-
+        owner = msg.sender;
     }
+
+
 }
