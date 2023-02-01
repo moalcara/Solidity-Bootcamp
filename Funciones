@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7 < 0.9.0;
+// tambien se puede escribir pragma solidity ^0.8.0
+
+//Recomendación, poner el mismo nombre del archivo o carpeta 
+contract Funciones {
+
+//Calculadora
+int operador1;
+int operador2;
+int resultado; 
+
+//funciones
+
+//Reciben los parámetros, usar guin bajo para definir parámetro de variable de estado
+function RecibirDatos (int _parametro1, int _parametro2) public{
+    operador1 = _parametro1;
+    operador2 = _parametro2;
+}
+
+//Funciones que no reciben parámetros 
+function sumar () public {
+    resultado = operador1 + operador2;
+    //Resultado es donde se guardara la suma
+}
+
+//Funciones que regresan un valor 
+function verResultado () public return(int){
+    return resultado
+}
+
+//Funciones que regresna n valores
+function verOperadores () public return (int,int){
+    return (operador1, operador2);
+
+}
+
+}
