@@ -36,4 +36,15 @@ function verOperadores () public return (int,int){
 
 }
 
+//Storage y memory
+/*las variables de estado siempre se gauarda en el storage - en la EMV - en la blockchain
+todas las variables de estado se guardan en storage. "permanentemente". 
+Peeero las funciones se guardan en memory, "de manera temporal"
+Las variables que declaro en funciones no se guardan en storage si no en la memory, se guarda
+temporal a diferencia de las demás variables
+
+Los parámetros tambien se guardan de manera temporal, con los valores de tipo string
+va a dar un error ya que es necesario almacenar este dato en memory antes de seguir*/
+
 }
+
