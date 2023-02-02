@@ -1,0 +1,13 @@
+//Repositorio Zeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol
+//Link código: https://www.openzeppelin.com/contracts
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract ERC20Blockdemy is ERC20 {
+    constructor(uint256 _initialSupply) ERC20("BlockdemyCoin", "BLC") {
+    _mint(msg.sender, _initialSupply);
+}
+}
