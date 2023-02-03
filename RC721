@@ -17,3 +17,6 @@ contract MyToken is ERC721URIStorage {
         _setTokenURI(tokenId, _tokenURI);
     }
 }
+
+//Primero mintear la funcion
+//Luego hacer todo lo de pinata + json + subir el token URI antes de mintearlo y con eso debe de salir en opensea
