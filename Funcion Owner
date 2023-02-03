@@ -1,0 +1,19 @@
+
+///////
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract EjemploOwner is Ownable {
+
+
+    uint value;
+    //Cualquier cuenta puede ejecutarla
+    function normalThing() public payable{
+        value = value + msg.value;
+    }
+
+    //Solo el owner pueda ejecutarla
+    
+}
