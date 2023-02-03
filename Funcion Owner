@@ -17,3 +17,28 @@ contract EjemploOwner is Ownable {
     //Solo el owner pueda ejecutarla
     
 }
+
+
+
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract EjemploOwner is Ownable {
+
+
+    uint public value;
+    //Cualquier cuenta puede ejecutarla
+    function normalThing() public payable{
+        value = value + msg.value;
+    }
+
+    //Solo el owner pueda ejecutarla
+    function specialThing(address payable _to) public onlyOwner{
+        //Transferir los fondos del contrato a la cuenta _to
+        _to.transfer(address(this).balance);
+    }
+}
