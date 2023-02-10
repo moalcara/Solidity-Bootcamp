@@ -1,0 +1,70 @@
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.8.0;
+
+contract BaseProyecto{
+
+    struct Proposal2{
+        address addressProposal; 
+        uint voteCount; // contador de votos
+    }
+    struct Voter1{
+        address addressVotante; 
+        bool authVotante; // Autorizador de votante  
+    }
+    address chairperson; 
+    Voter1[] public arrVoters;  
+    Proposal2[] public arrProposals;  
+
+    function addOwner(address _chairperson) public {
+        chairperson = msg.sender; //podriamos poner un view del owner??
+    } 
+
+    function addVoto(address _addrV, address _addrP) public{ 
+        while (arrVoters[0].authVotante != false && arrVoters[1].authVotante != false ) { // 0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB , 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+            if(_addrP == arrProposals[0].addressProposal){ //0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+            arrProposals[0].voteCount ++;
+            arrVoters[0].authVotante = false;
+            }
+            else  //0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+            arrProposals[1].voteCount ++; 
+            arrVoters[1].authVotante = false;           
+        }
+    }
+
+    function authVotante(bool _r) public{
+    }
+
+    function addProposal(address _addr, uint _c ) public{        
+        arrProposals.push(Proposal2(_addr, _c));
+    }
+    function addVoter(address _addrV, bool _auth) public{        
+        arrVoters.push(Voter1(_addrV, _auth));
+    }
+
+   function viewGanador() public view returns(address,address){
+            if(arrProposals[0].voteCount>arrProposals[1].voteCount){
+                return (arrProposals[0].addressProposal, chairperson);
+            }
+            else
+                return (arrProposals[1].addressProposal,chairperson);
+    }
+
+     function viewVotoProposal() public view returns(uint,uint){
+        return (arrProposals[0].voteCount, arrProposals[1].voteCount);
+    }
+
+   function viewVoter() public view returns(bool,address, bool,address){
+        return (arrVoters[0].authVotante, arrVoters[0].addressVotante,arrVoters[1].authVotante , arrVoters[1].addressVotante);
+    }
+
+
+//*******************************limitVotacion() 
+
+/*arrVotantes(nombre,nombre,nombre) -- longitud del array 
+fun limitVotacion(uint _v)
+if (vontantes = longuitudArray)
+cortar la votaciòn
+*/
+}
