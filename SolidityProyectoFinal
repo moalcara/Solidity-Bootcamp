@@ -33,8 +33,18 @@ contract BaseProyecto{
         }
     }
 
-    function authVotante(bool _r) public{
+function authVotante(address _addrOwner, address _addrV) public{
+        while(_addrOwner == owner){
+            console.log("OK INGRESA WHILE");
+
+            if(_addrV == arrVoters[0].addressVotante){
+                arrVoters[0].authVotante = true;                
+
+            }else arrVoters[1].authVotante = true;
+            console.log("Address votante autorizado");
+        }
     }
+
 
     function addProposal(address _addr, uint _c ) public{        
         arrProposals.push(Proposal2(_addr, _c));
